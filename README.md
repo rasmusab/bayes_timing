@@ -6,9 +6,12 @@ This repository contains scripts that implements the models described in Bååth
 **non_informative_subject.R** implements the non-informative non-hierarchical model.
 **non_informative_hierarchical.R** implements the non-informative hierarchical model.
 **informative_hierarchical.R** implements the informative hierarchical model.
+**maximum_likelihood_approach.R** implements a maximum likelihood approach as proposed by Ulrich and Miller (1994).
 
 References
 -------------------------
 Bååth, R., & Madison, G. (2012). The subjective difficulty of tapping to a slow beat. *In Proceedings of the 12th International Conference on Music Perception and Cognition* (pp. 82–85). [pdf](www.sumsar.net/papers/ICMPC_2012_rasmus_baath.pdf)
 
 Bååth, R. (in preparation)
+
+Ulrich, R., & Miller, J. (1994). Effects of truncation on reaction time analysis. *Journal of Experimental Psychology: General*, 123(1), 34–80. doi:10.1037/0096-3445.123.1.34
