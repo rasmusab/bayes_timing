@@ -11,9 +11,8 @@ require(rjags)
 # The right censoring limit in ms
 cens =  100
 
-# Reading in the data, and extract just the 6 first participants
+# Reading in the data
 d <- read.csv("tapping_data_baath_madison_2012.csv")
-d <- d[ d$subject %in% 1:6,] 
 
 # Here the example data is from Baath and Madison (2012) 
 # with the folowing variables/columns:
@@ -134,4 +133,47 @@ plot(isi_levels, est_sd["50%",], xlim=c(0, max(isi_levels)), ylim=c(0, max(est_s
      type="b", lwd=2, xlab="ISI in ms", ylab="Mean SD in ms")
 lines(isi_levels, est_sd["97.5%",], type = "b", col="blue")
 lines(isi_levels, est_sd["2.5%",], type = "b", col="blue")
+
+### The following replicates the plot that is found in section 3.3 in Baath (in preparation)
+# ggplot2 is required for plotting
+library(ggplot2)
+
+# Create a data frame to contain the point estimates and credible 
+# intervals for the asychrony SD for the three first participants
+# plus the group level mean SD.
+est_df <- expand.grid(subject = 1:3, isi_level = 1:5)
+est_df$isi <- isi_levels[ est_df$isi_level]
+for(row_i in seq_len(nrow(est_df))) {
+  subject <- est_df$subject[row_i]  
+  isi_level <- est_df$isi_level[row_i]  
+  asynch <- s_mat[, paste0("sigma[", subject, ",", isi_level,"]")]
+  est <- quantile(asynch, c(0.025, 0.5, 0.975))
+  est_df$lower[row_i] <- est[1]
+  est_df$median[row_i] <- est[2]
+  est_df$upper[row_i] <- est[3]
+}
+
+est_df$name <- paste("Subject", est_df$subject, "SD")
+
+mean_sigma <- s_mat[, grep("mean_sigma", colnames(s_mat)) ]
+# Put back the isi levels as column names for easier comparison
+colnames(mean_sigma) <- isi_levels
+# Calculate the posterior medians and a 95% credible intervall
+for(isi in colnames(mean_sigma)) {
+  est <-quantile(mean_sigma[, isi], c(0.025, 0.5, 0.975))
+  est_df <- rbind(est_df, data.frame(subject = NA, isi_level = NA, lower = est[1], median = est[2],
+                                     upper = est[3], isi = as.numeric(isi), name = "Group mean SD"))
+}
+
+# Produce the actual plot
+
+qplot(isi, median, ymin = lower, ymax = upper, data=est_df, geom=c("line", "linerange"),
+      facets = . ~ name, xlab = "Interstimulus interval in ms",
+      ylab = expression("Median posterior with 95% CI")) +
+  theme_minimal() + scale_x_continuous(breaks = isi_levels) + 
+  coord_cartesian(ylim=c(0, 390), xlim=c(200, 3100))
+
+# The following would save the plot as a pdf
+ggsave("hierarch_asynch_sd_plot.pdf", width=8, height=2.5)
+
 
