@@ -176,4 +176,17 @@ qplot(isi, median, ymin = lower, ymax = upper, data=est_df, geom=c("line", "line
 # The following would save the plot as a pdf
 ggsave("hierarch_asynch_sd_plot.pdf", width=8, height=2.5)
 
+# The probability that participant one has a lower timing variability than
+# participant two at an ISI of 1800 ms
+part1_1800_sd <- s_mat[,"sigma[1,3]"]
+part2_1800_sd <- s_mat[,"sigma[2,3]"]
+mean(part1_sd < part2_sd)
 
+
+# The probability that the increase in timing variability between ISI 1800 ms 
+# and 2400 ms is larger for participant one that for participant two
+part1_2400_sd <- s_mat[,"sigma[1,4]"]
+part2_2400_sd <- s_mat[,"sigma[2,4]"]
+part1_sd_diff <- part1_2400_sd - part1_1800_sd
+part2_sd_diff <- part2_2400_sd - part2_1800_sd
+mean(part1_sd_diff > part2_sd_diff)
