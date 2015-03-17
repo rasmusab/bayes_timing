@@ -1,5 +1,5 @@
 # This is a script implementing the model described in Baath (in preparation). The model
-# below is the one refered to as the Non-informative hierarchical model in the manuscript.
+# below is the one refered to as the Informative hierarchical model in the manuscript.
 
 # JAGS have a specific way of specifying censoring and a good guide is:
 # http://doingbayesiandataanalysis.blogspot.se/2012/01/complete-example-of-right-censoring-in.html
