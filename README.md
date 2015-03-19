@@ -12,6 +12,6 @@ References
 -------------------------
 Bååth, R., & Madison, G. (2012). The subjective difficulty of tapping to a slow beat. *In Proceedings of the 12th International Conference on Music Perception and Cognition* (pp. 82–85). [pdf](www.sumsar.net/papers/ICMPC_2012_rasmus_baath.pdf)
 
-Bååth, R. (in preparation)
+Bååth, R. Estimating the Distribution of Sensorimotor Synchronization Data: A Bayesian Hierarchical Modeling Approach . (in preparation)
 
 Ulrich, R., & Miller, J. (1994). Effects of truncation on reaction time analysis. *Journal of Experimental Psychology: General*, 123(1), 34–80. doi:10.1037/0096-3445.123.1.34
