@@ -136,8 +136,9 @@ points_with_mean <- function(x, y, ...) {
   points(x, y, ...)
   points(mean(x), mean(y), col="red", pch=15)
 }
-pairs(smat[, grep("sigma_dist", colnames(smat))], log="xy", panel=points_with_mean, col=rgb(0, 0, 0, 0.2),
-      labels = isi_levels, xlim=c(10, 600), ylim=c(10, 600)) 
+pairs(smat[, c("sigma_dist[1]", "sigma_dist[2]", "sigma_dist[3]", "sigma_dist[4]")], 
+      log="xy", panel=points_with_mean, col=rgb(0, 0, 0, 0.2),
+      labels = paste("ISI", isi_levels[1:4]), xlim=c(15, 550), ylim=c(15, 550)) 
 
 # Plotting point estimates for the group SD asynchrony
 ssum <- summary(s)  

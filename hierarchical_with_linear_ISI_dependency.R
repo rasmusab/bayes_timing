@@ -124,7 +124,8 @@ plot(s)
 ssum <- summary(s)  
 est <- ssum$quantiles
 
-plot(isi_levels, est[grep(pattern = "^mu_dist", rownames(est)), "50%"], type="b", ylim=c(-200, 100), col="darkgreen")
+plot(isi_levels, est[grep(pattern = "^mu_dist", rownames(est)), "50%"], type="b", ylim=c(-200, 100), col="darkgreen",
+     ylab="Mean asynchrony in ms", xlab="ISI in ms")
 for(i in seq_along(isi_levels)) {
   lines( rep(isi_levels[i], 2), est[paste0("mu_dist[", i, "]"), c("25%", "75%")], lwd=4, col="darkgreen")
   lines( rep(isi_levels[i], 2), est[paste0("mu_dist[", i, "]"), c("2.5%", "97.5%")], lwd=1, col="darkgreen")
@@ -135,7 +136,8 @@ for(j in seq_along(subjects)) {
 
 # Plotting point estimates for the SD asynchrony, both the group estimate (red)
 # and the subject estimates (grey).
-plot(isi_levels, est[grep(pattern = "^sigma_dist", rownames(est)), "50%"], type="b", ylim=c(0, 400), col="darkred", lwd=2)
+plot(isi_levels, est[grep(pattern = "^sigma_dist", rownames(est)), "50%"], type="b", ylim=c(0, 400), col="darkred", lwd=2,
+     ylab="Asynchrony SD in ms", xlab="ISI in ms")
 for(i in seq_along(isi_levels)) {
   lines( rep(isi_levels[i], 2), est[paste0("sigma_dist[", i, "]"), c("25%", "75%")], lwd=4, col="darkred")
   lines( rep(isi_levels[i], 2), est[paste0("sigma_dist[", i, "]"), c("2.5%", "97.5%")], lwd=1, col="darkred")
