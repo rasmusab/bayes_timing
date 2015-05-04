@@ -20,6 +20,6 @@ References
 
 Bååth, R. (2015). Estimating the distribution of sensorimotor synchronization data: A Bayesian hierarchical modeling approach. *Behavior Research Methods*. [doi:10.3758/s13428-015-0591-2](http://dx.doi.org/10.3758/s13428-015-0591-2) [pdf](http://www.sumsar.net/papers/baath_2015_estimating_the_dist_of_sms_data.pdf)
 
-Bååth, R., & Madison, G. (2012). The subjective difficulty of tapping to a slow beat. *In Proceedings of the 12th International Conference on Music Perception and Cognition* (pp. 82–85). [pdf](www.sumsar.net/papers/ICMPC_2012_rasmus_baath.pdf)
+Bååth, R., & Madison, G. (2012). The subjective difficulty of tapping to a slow beat. *In Proceedings of the 12th International Conference on Music Perception and Cognition* (pp. 82–85). [pdf](http://www.sumsar.net/papers/ICMPC_2012_rasmus_baath.pdf)
 
 Ulrich, R., & Miller, J. (1994). Effects of truncation on reaction time analysis. *Journal of Experimental Psychology: General*, 123(1), 34–80. doi:10.1037/0096-3445.123.1.34
